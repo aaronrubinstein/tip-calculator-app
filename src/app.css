@@ -1,0 +1,42 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    font-family: 'Space Mono', monospace;
+    font-size: 16px;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+button {
+    border: none;
+    background: none;
+}
+
+body {
+    /* color palette */
+    --body-bg: hsl(185, 41%, 84%);
+    --primary: hsl(172, 67%, 45%);
+    --btn-hover: hsl(173, 61%, 77%);
+    --dark: hsl(183, 100%, 15%);
+    --input-bg: hsl(185, 38%, 97%);
+    --label: hsl(186, 14%, 43%);
+    --invalid: hsl(13, 70%, 60%);
+    
+    min-height: 100dvh;
+    background-color: var(--body-bg);
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
