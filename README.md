@@ -11,8 +11,9 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
 
 **Desktop**
 
-<img src="./solution/desktop.png" height=80% width=80%>
+<img src="./solution/desktop.png" height=90% width=90%>
+
 
 **Mobile**
 
-<img src="./solution/mobile.png" height=20% width=20%>
+<img src="./solution/mobile.png" height=30% width=30%>
