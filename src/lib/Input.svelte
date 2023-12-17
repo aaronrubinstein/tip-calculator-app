@@ -1,4 +1,6 @@
 <script>
+    import { tick } from 'svelte';
+    
     export let name;
     export let label;
     export let type = 'number';
@@ -7,8 +9,14 @@
     export let placeholder = '';
     export let icon;
     export let invalidMessage = '';
-
+    export let value;
+    
     let invalid = false;
+    let input;
+    export async function validateInput() {
+        await tick();
+        input.checkValidity() ? invalid = false : invalid = true;
+    }
 </script>
 
 <div class="input-container">
@@ -19,14 +27,17 @@
         {/if}
     </div>
     <input
-        type="{type}"
+        {...{ type }}
         {name}
         id={name}
         {placeholder}
+        bind:value
         {step}
         {min}
         class:invalid 
-        style="background-image: url({icon});" >
+        style="background-image: url({icon});"
+        bind:this={input}
+        on:input={validateInput} >
 </div>
 
 <style>
@@ -78,19 +89,5 @@
     input:invalid {
         border: 2px solid var(--invalid); 
     }
-
-    /* Remove number input arrows/spinners */
-    /* Chrome, Safari, Edge, Opera */
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-    }
-
-    /* Firefox */
-    input[type=number] {
-    -moz-appearance: textfield;
-    }
-
 
 </style>         
